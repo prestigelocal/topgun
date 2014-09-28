@@ -11,7 +11,7 @@ def fork(toDo):
 	name = "%s"%(toDo).replace(".py","")
 	dir = os.getcwd()
 	os.chdir(dir)
-	sys.stdout = open('%s.txt'%(name),'w')
+	sys.stdout = open('log_%s.txt'%(stamp),'a')
 	print dir
 	print "Feed to aggregate: %s"%(toDo)
 	start = time.time()
