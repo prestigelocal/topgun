@@ -13,11 +13,11 @@ def fork(toDo):
 	os.chdir(dir)
 	sys.stdout = open('%s.txt'%(name),'w')
 	print dir
-	print "Acquired scrape: %s"%(toDo)
+	print "Feed to aggregate: %s"%(toDo)
 	start = time.time()
 	print call(["python", name + ".py"])
 	print "Completed %s"%(toDo)
-	print "Number of rows:"
+	print "Number of records:"
 	print open('%s_%s_000.csv'%(name,stamp), 'r').read().count("\n")
 	print "Completed in:"
 	print str(time.time() - start)
