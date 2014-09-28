@@ -3,6 +3,7 @@ from subprocess import call
 import sys
 import re, codecs, Queue, os
 import time
+stamp = time.strftime("%Y%m%d")
 
 ScrapeQueue = Queue.Queue()
 
@@ -15,16 +16,9 @@ def fork(toDo):
 	print "Acquired scrape: %s"%(toDo)
 	start = time.time()
 	print call(["python", name + ".py"])
-	"""cfile = re.compile("^.*csv$")
-	for fname in os.listdir(dir + "/"):
-		if cfile.match(name):
-			csvfile = fname
-			print csvfile"""
 	print "Completed %s"%(toDo)
-	#print "Filename written:"
-	#print csvfile
 	print "Number of rows:"
-	print open('%s_20140928_000.csv'%(name), 'r').read().count("\n")
+	print open('%s_%s_000.csv'%(name,stamp), 'r').read().count("\n")
 	print "Completed in:"
 	print str(time.time() - start)
 
